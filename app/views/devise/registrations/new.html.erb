@@ -1,0 +1,36 @@
+<section class="form-auth text-center">
+
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <%= f.email_field :email,
+                      autofocus: true,
+                      class: "form-control",
+                      id: "inputEmail",
+                      placeholder: "Email Address",
+                      autocomplete: "email",
+                      required: true
+    %>
+    <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
+    <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
+
+    <%= f.password_field :password,
+                         autocomplete: "new-password",
+                         placeholder: "Password",
+                         class: "form-control",
+                         id: "inputPassword"
+    %>
+    <%= f.label :password_confirmation, class: "sr-only" %><br/>
+    <%= f.password_field :password_confirmation,
+                         autocomplete: "new-password",
+                         placeholder: "Confirm Password",
+                         class: "form-control"
+    %>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</section>
