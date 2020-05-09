@@ -7,7 +7,7 @@ pizza:
   active: true
   description: This is the best pizza you will ever ever eat, if you dont like it you can gtfo.
   tags: pizza, easy
-  #ingredients: pepperoni
+  #ingredients:  mozzarella
 
 soup:
   name: Soup of the Day
@@ -15,7 +15,7 @@ soup:
   deleted: false
   active: true
   description: Soup is not a meal, its ONLY an appetizer
-  tags: groups
+  tags: groups, easy
 
 taco:
   name: Taco Madness

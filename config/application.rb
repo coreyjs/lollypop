@@ -15,5 +15,10 @@ module Lollypop
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    #
+    # ActiveSupport::Inflector.inflections(:en) do |inflect|
+    #   inflect.irregular 'ingredient', 'ingredients'
+    #   inflect.irregular 'recipe', 'recipes'
+    # end
   end
 end

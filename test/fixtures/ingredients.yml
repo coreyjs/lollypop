@@ -1,7 +1,24 @@
+# stuff
 
 pepperoni:
+  quantity: 2
+  uom: 2
+  name: Spicy Cup and Char Pepporoni
+  slug: spicy_cup_pepp
+  recipe: pizza
+
+ground_beef:
   quantity: 1
   fraction: 0.5
   uom: 13
-  name: Spicy Cup and Char Pepporoni
-  slug: spicy_cup_pepp
+  name: Grass fed ground beef
+  slug: gf_ground_beef
+  recipe: soup
+
+mozzarella:
+  quantity: 3
+  fraction: 0.5
+  uom: 8
+  name: Fresh Mozarella
+  slug: fresh_mozz_dkdfjk49
+  recipe: pizza
