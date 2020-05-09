@@ -6,3 +6,6 @@ groups:
 
 easy:
   name: Easy to Make
+
+kid_friendly:
+  name: 'Kid friendly'
