@@ -1,4 +1,4 @@
-# README
+![Ruby](https://github.com/coreyjs/lollypop/workflows/Ruby/badge.svg)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
