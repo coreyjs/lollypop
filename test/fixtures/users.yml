@@ -8,10 +8,12 @@ kaladin:
   first_name: Kaladin
   last_name: Stormblessed
   email: kaladin@radiants.io
+  biography: I am the guy with the spear who fucks shit up.  Best Radiant ever number 1
 # column: value
 #
 dalinar:
   first_name: Dalinar
   last_name: Kholin
   email: dalinar@kholinar.hq
+  biography: Im sad I killed so many people but now I am basically God
 # column: value

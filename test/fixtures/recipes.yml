@@ -6,6 +6,7 @@ pizza:
   deleted: false
   active: true
   description: This is the best pizza you will ever ever eat, if you dont like it you can gtfo.
+  tags: pizza, easy
 
 soup:
   name: Soup of the Day
@@ -13,6 +14,7 @@ soup:
   deleted: false
   active: true
   description: Soup is not a meal, its ONLY an appetizer
+  tags: groups
 
 taco:
   name: Taco Madness
@@ -20,6 +22,7 @@ taco:
   deleted: true
   active: false
   description: This is my favorite taco recipe ever
+  tags: easy
 
 inactive_fruit:
   name: Fruit Medely
