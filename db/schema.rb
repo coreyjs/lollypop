@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2020_05_06_234436) do
     t.bigint "user_id"
     t.string "name"
     t.string "slug"
-    t.boolean "deleted"
-    t.boolean "active"
+    t.boolean "deleted", default: false
+    t.boolean "active", default: true
     t.text "description"
     t.string "photo"
     t.datetime "created_at", precision: 6, null: false

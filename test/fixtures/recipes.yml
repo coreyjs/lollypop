@@ -13,3 +13,17 @@ soup:
   deleted: false
   active: true
   description: Soup is not a meal, its ONLY an appetizer
+
+taco:
+  name: Taco Madness
+  slug: taco_madness_39djk49
+  deleted: true
+  active: false
+  description: This is my favorite taco recipe ever
+
+inactive_fruit:
+  name: Fruit Medely
+  slug: fruit_ksafjdk
+  deleted: false
+  active: false
+  description:  This is a garbage recipe
