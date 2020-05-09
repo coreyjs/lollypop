@@ -21,9 +21,9 @@ jobs:
       postgres:
         image: postgres:12
         env:
-          POSTGRES_USER: ""
+          POSTGRES_USER: "myapp"
           POSTGRES_DB: lollypop_test
-          POSTGRES_PASSWROD: ""
+          POSTGRES_PASSWRORD: ""
         ports: ["5432:5423"]
 
     steps:
@@ -48,5 +48,12 @@ jobs:
       run: |
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
+    - name: Setup test database
+      env:
+        RAILS_ENV: test
+        PGHOST: localhost
+        PGUSER: myapp
+      run: |
+        bin/rails db:setup
     - name: Run tests
       run: bundle exec rake test
