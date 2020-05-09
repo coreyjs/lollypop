@@ -2,7 +2,7 @@ require 'test_helper'
 
 class RecipesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @recipe = recipes(:one)
+    @recipe = recipes(:pizza)
   end
 
   test "should get index" do
@@ -17,7 +17,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create recipe" do
     assert_difference('Recipe.count') do
-      post recipes_url, params: { recipe: { active: @recipe.active, deleted: @recipe.deleted, description: @recipe.description, name: @recipe.name, slug: @recipe.slug } }
+      post recipes_url, params: { recipe: { active: @recipe.active, deleted: @recipe.deleted, description: @recipe.description, name: @recipe.name, slug: 'test' } }
     end
 
     assert_redirected_to recipe_url(Recipe.last)
@@ -34,7 +34,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update recipe" do
-    patch recipe_url(@recipe), params: { recipe: { active: @recipe.active, deleted: @recipe.deleted, description: @recipe.description, name: @recipe.name, slug: @recipe.slug } }
+    patch recipe_url(@recipe), params: { recipe: { active: false, deleted: @recipe.deleted, description: @recipe.description, name: @recipe.name, slug: @recipe.slug } }
     assert_redirected_to recipe_url(@recipe)
   end
 
