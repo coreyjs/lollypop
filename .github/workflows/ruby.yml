@@ -17,10 +17,18 @@ jobs:
   test:
 
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_USER: "myapp"
+          POSTGRES_DB: lollypop_test
+          POSTGRES_PASSWRORD: ""
+        ports: ["5432:5423"]
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby
+    - name: Checkout Code
     # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
     # change this to (see https://github.com/ruby/setup-ruby#versioning):
     # uses: ruby/setup-ruby@v1
@@ -29,5 +37,23 @@ jobs:
         ruby-version: 2.6.5
     - name: Install dependencies
       run: bundle install
+    - name: Ruby gem cache
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+    - name: Install gems
+      run: |
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+    - name: Setup test database
+      env:
+        RAILS_ENV: test
+        PGHOST: localhost
+        PGUSER: myapp
+      run: |
+        bin/rails db:setup
     - name: Run tests
       run: bundle exec rake test
