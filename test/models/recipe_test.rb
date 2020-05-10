@@ -34,4 +34,21 @@ class RecipeTest < ActiveSupport::TestCase
     assert_includes recipe_2.tags, tag
   end
 
+  test "recipes can add ingredients" do
+    recipe = recipes(:taco)
+    ingredient = ingredients(:ground_turkey)
+
+    assert recipe.valid?
+
+    recipe.ingredients << ingredient
+
+    recipe.save
+    assert_includes recipe.ingredients, ingredient
+
+    # confirm the ingredient is valid when added to the recipe
+    assert ingredient.valid?
+
+
+  end
+
 end

@@ -22,3 +22,10 @@ mozzarella:
   name: Fresh Mozarella
   slug: fresh_mozz_dkdfjk49
   recipe: pizza
+
+ground_turkey:
+  quantity: 2
+  fraction: 0.5
+  uom: 13
+  name: Grass fed ground turkey
+  slug: gf_ground_turk3333
