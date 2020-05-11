@@ -7,6 +7,15 @@ pizza:
   active: true
   description: This is the best pizza you will ever ever eat, if you dont like it you can gtfo.
   tags: pizza, easy
+  instructions: >
+    This pizza is super simple to follow.
+    <br/>
+    1. Make Dough <br/>
+    2. Make Sauce <br/>
+    3. Make Pizza <br/>
+  prep_time: 45
+  cook_time: 5
+
   #ingredients:  mozzarella
 
 soup:

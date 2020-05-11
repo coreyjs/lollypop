@@ -47,8 +47,32 @@ class RecipeTest < ActiveSupport::TestCase
 
     # confirm the ingredient is valid when added to the recipe
     assert ingredient.valid?
+  end
 
+  test "it is invalid if it has a prep_time < 0" do
+    recipe = recipes(:taco)
+    assert recipe.valid?
+    recipe.prep_time = -1
+    assert_not recipe.valid?
+  end
 
+  test "it is invalid if it has a cook_time < 0" do
+    recipe = recipes(:pizza)
+    assert recipe.valid?
+    recipe.cook_time = -3
+    assert_not recipe.valid?
+  end
+
+  test "it should have a default value for private" do
+    recipe = recipes(:soup)
+    assert_equal recipe.private, false
+    assert recipe.valid?
+  end
+
+  test "it should use helper private? method" do
+    recipe = recipes(:soup)
+    assert_respond_to recipe, :private?
+    assert_equal recipe.private?, false
   end
 
 end
