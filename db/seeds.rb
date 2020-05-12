@@ -14,3 +14,12 @@ tags = Tag.create(
         {name: 'Advanced'},
     ]
 )
+
+r1 = Recipe.create(
+    name: 'Best Pizza Dough Ever',
+    slug: 'bpa_1',
+    description: 'This is the best homemade pizza dough you will ever have!',
+    instructions: 'Makfj djfklsdjf kdlsjf sdkljfkls djfklds jflksd jflsd',
+    prep_time: 60,
+    cook_time: 12
+)
