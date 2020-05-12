@@ -5,7 +5,7 @@
 # This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: Ruby
+name: Lollypop Build
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
       postgres:
         image: postgres:12
         env:
-          POSTGRES_USER: "myapp"
+          POSTGRES_USER: test_user
           POSTGRES_DB: lollypop_test
           POSTGRES_PASSWRORD: ""
         ports: ["5432:5423"]
@@ -48,12 +48,14 @@ jobs:
       run: |
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
+        
     - name: Setup test database
       env:
         RAILS_ENV: test
         PGHOST: localhost
-        PGUSER: myapp
+        PGUSER: test_user
       run: |
         bin/rails db:setup
+        
     - name: Run tests
       run: bundle exec rake test
