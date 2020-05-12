@@ -75,4 +75,22 @@ class RecipeTest < ActiveSupport::TestCase
     assert_equal recipe.private?, false
   end
 
+  test "a recipe with 0 ratings has zero star rating" do
+    recipe = recipes(:taco)
+    assert_respond_to recipe, :rating
+    assert_equal recipe.rating, 0
+  end
+
+  test "a recipe with many ratings should be the average, nearest quarter" do
+    recipe = recipes(:taco)
+    u1 = users(:kaladin)
+    u2 = users(:dalinar)
+    recipe.ratings << Rating.new(user: u1, value: 5)
+    recipe.ratings << Rating.new(user: u1, value: 5)
+    recipe.ratings << Rating.new(user: u2, value: 1)
+
+    assert recipe.ratings.length == 3
+    assert_equal recipe.rating, 3.75
+  end
+
 end
