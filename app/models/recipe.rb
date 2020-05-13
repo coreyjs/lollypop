@@ -8,6 +8,8 @@ class Recipe < ApplicationRecord
   validates :prep_time, allow_nil: true , :numericality => {greater_than_or_equal_to: 0}
   validates :cook_time, allow_nil: true , :numericality => {greater_than_or_equal_to: 0}
 
+  scope :active, -> { where(active: true, deleted: false)}
+
   # Is this recipe private to the :user
   def private?
     private

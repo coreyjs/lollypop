@@ -1,5 +1,5 @@
 class PublicController < ApplicationController
   def main
-    @recipes = Recipe.all
+    @recipes = Recipe.active
   end
 end
