@@ -1,4 +1,22 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: recipes
+#
+#  id           :bigint           not null, primary key
+#  user_id      :bigint
+#  name         :string
+#  slug         :string
+#  deleted      :boolean          default(FALSE)
+#  active       :boolean          default(TRUE)
+#  description  :text
+#  photo        :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  instructions :text
+#  private      :boolean          default(FALSE)
+#  prep_time    :integer
+#  cook_time    :integer
+#
 
 pizza:
   name: My Best Pizza Recipe

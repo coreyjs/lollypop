@@ -1,3 +1,4 @@
+
 class Ingredient < ApplicationRecord
   belongs_to :recipe
   enum uom: [
@@ -21,3 +22,19 @@ class Ingredient < ApplicationRecord
   validates :quantity, presence: true,
             :numericality => {greater_than_or_equal_to: 0}
 end
+
+# == Schema Information
+#
+# Table name: ingredients
+#
+#  id         :bigint           not null, primary key
+#  recipe_id  :bigint
+#  quantity   :integer          not null
+#  fraction   :float
+#  uom        :integer
+#  name       :string           not null
+#  slug       :string
+#  ordinal    :integer          default(0)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#

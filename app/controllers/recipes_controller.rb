@@ -65,11 +65,12 @@ class RecipesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
-      @recipe = Recipe.find(params[:id])
+      @recipe = Recipe.active.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit(:name, :slug, :deleted, :active, :description)
+      params.require(:recipe).permit(:name, :slug, :deleted, :active, :description,
+                                     :photo, :instructions, :cook_time, :prep_time, :private)
     end
 end

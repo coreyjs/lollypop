@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: ratings
+#
+#  id         :bigint           not null, primary key
+#  user_id    :bigint
+#  recipe_id  :bigint
+#  value      :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require 'test_helper'
 
 class RatingTest < ActiveSupport::TestCase

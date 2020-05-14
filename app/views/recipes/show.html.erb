@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <section id="blog">
   <div class="container">
     <div class="row">
@@ -19,31 +21,31 @@
                     <i class="fa fa-clock-o"></i>
                     <p><%= @recipe.created_at %></p>
                   </div>
-                  <div class="block">
-                    <i class="fa fa-user"></i>
-                    <p>Admin</p>
-                  </div>
-                  <div class="block">
-                    <i class="fa fa-tags"></i>
-                    <p>
-                      <a href="">Food Culture</a>,
-                      <a href="">Green Items</a>
-                    </p>
-                  </div>
+<!--                  <div class="block">-->
+<!--                    <i class="fa fa-user"></i>-->
+<!--                    <p>Admin</p>-->
+<!--                  </div>-->
+<!--                  <div class="block">-->
+<!--                    <i class="fa fa-tags"></i>-->
+<!--                    <p>-->
+<!--                      <a href="">Food Culture</a>,-->
+<!--                      <a href="">Green Items</a>-->
+<!--                    </p>-->
+<!--                  </div>-->
                   <div class="block">
                     <i class="fa fa-comments"></i>
-                    <p>3 Comments</p>
+                    <p>Prep Time: <%= @recipe.prep_time %> mins</p>
                   </div>
                 </div>
                 <p><%= @recipe.description %></p>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren sed diam voluptua.</p>
+                <p><%= @recipe.instructions.html_safe %></p>
 
-                <blockquote>
-                  <p>Lorem ipsum dolor sit amet, in pri offendit ocurreret. Vix sumo ferri an. pfs adodio fugit delenit ut qui. Omittam suscipiantur ex  vel,ex audiam  intellegat gfIn labitur discere eos, nam an feugiat voluptua.</p>
-                  <div class="block-qoute-by">
-                    - John Doe , Author
-                  </div>
-                </blockquote>
+<!--                <blockquote>-->
+<!--                  <p>Lorem ipsum dolor sit amet, in pri offendit ocurreret. Vix sumo ferri an. pfs adodio fugit delenit ut qui. Omittam suscipiantur ex  vel,ex audiam  intellegat gfIn labitur discere eos, nam an feugiat voluptua.</p>-->
+<!--                  <div class="block-qoute-by">-->
+<!--                    - John Doe , Author-->
+<!--                  </div>-->
+<!--                </blockquote>-->
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde expedita neque excepturi iste cumque! Dolorem, ipsum, totam, culpa ullam dolores qui possimus corrupti suscipit recusandae quam magnam quis eaque incidunt!</p>
               </div>
             </div>
@@ -52,11 +54,11 @@
 
         <div class="author-id">
           <div class="media">
-            <h5>About The Author</h5>
-            <img class="media-object pull-left" src="images/author.jpg" alt="...">
+            <h5>Author</h5>
+            <img class="media-object pull-left" src="images/author.jpg" alt="">
             <div class="media-body">
               <h6 class="media-heading"><%= @recipe.user&.first_name %></h6>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, sequi quibusdam voluptate perferendis veniam eveniet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, veritatis.</p>
+              <p><%= @recipe.user&.biography %></p>
             </div>	<!-- End of /.media-body -->
           </div>	<!-- End of /.media -->
         </div>	<!-- End of /.author-id -->
@@ -130,16 +132,19 @@
           </div>	<!-- End of /.block -->
 
           <div class="block">
-            <h4>Tag Cloud</h4>
+            <h4>Tasty Tags</h4>
             <div class="tag-link">
-              <a href="">BALLET</a>
-              <a href="">BLOG</a>
-              <a href="">CHRISTMAS</a>
-              <a href="">ELEGANCE</a>
-              <a href="">ELEGANT</a>
-              <a href="">SHOPPING</a>
-              <a href="">SHOP</a>
-              <a href="">PHOTOGRAPHY</a>
+              <% @recipe.tags.each do |t| %>
+                <a href=""><%= t.name %></a>
+              <% end %>
+<!--              <a href="">BALLET</a>-->
+<!--              <a href="">BLOG</a>-->
+<!--              <a href="">CHRISTMAS</a>-->
+<!--              <a href="">ELEGANCE</a>-->
+<!--              <a href="">ELEGANT</a>-->
+<!--              <a href="">SHOPPING</a>-->
+<!--              <a href="">SHOP</a>-->
+<!--              <a href="">PHOTOGRAPHY</a>-->
             </div>
           </div>	<!-- End of /.block -->
 
@@ -148,35 +153,6 @@
     </div>	<!-- End of /.row -->
   </div>	<!-- End of /.container -->
 </section>
-
-
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @recipe.slug %>
-</p>
-
-<p>
-  <strong>Deleted:</strong>
-  <%= @recipe.deleted %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @recipe.active %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
 
 <!--<%#= link_to 'Edit', edit_recipe_path(@recipe) %> |-->
 <%= link_to 'Back', recipes_path %>

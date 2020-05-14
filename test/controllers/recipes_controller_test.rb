@@ -45,4 +45,12 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   #
   #   assert_redirected_to recipes_url
   # end
+  #
+  test "a recipe has a NULL rating without a rating" do
+
+  end
+
+  test "decimals should be rouned to the quarter star when multiple ratings exist" do
+
+  end
 end

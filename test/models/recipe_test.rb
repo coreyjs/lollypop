@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: recipes
+#
+#  id           :bigint           not null, primary key
+#  user_id      :bigint
+#  name         :string
+#  slug         :string
+#  deleted      :boolean          default(FALSE)
+#  active       :boolean          default(TRUE)
+#  description  :text
+#  photo        :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  instructions :text
+#  private      :boolean          default(FALSE)
+#  prep_time    :integer
+#  cook_time    :integer
+#
 require 'test_helper'
 
 class RecipeTest < ActiveSupport::TestCase
@@ -75,10 +94,10 @@ class RecipeTest < ActiveSupport::TestCase
     assert_equal recipe.private?, false
   end
 
-  test "a recipe with 0 ratings has zero star rating" do
+  test "a recipe with 0 ratings has nil star rating" do
     recipe = recipes(:taco)
     assert_respond_to recipe, :rating
-    assert_equal recipe.rating, 0
+    assert_nil recipe.rating
   end
 
   test "a recipe with many ratings should be the average, nearest quarter" do
