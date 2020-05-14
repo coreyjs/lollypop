@@ -93,4 +93,11 @@ class RecipeTest < ActiveSupport::TestCase
     assert_equal recipe.rating, 3.75
   end
 
+  test "scope active should only return Active, Non-deleted and public recipes" do
+    all = Recipe.all
+    scoped = Recipe.active
+
+    assert all.length != scoped.length
+  end
+
 end

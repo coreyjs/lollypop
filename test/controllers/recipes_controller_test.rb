@@ -28,21 +28,21 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_recipe_url(@recipe)
-    assert_response :success
-  end
-
-  test "should update recipe" do
-    patch recipe_url(@recipe), params: { recipe: { active: false, deleted: @recipe.deleted, description: @recipe.description, name: @recipe.name, slug: @recipe.slug } }
-    assert_redirected_to recipe_url(@recipe)
-  end
-
-  test "should destroy recipe" do
-    assert_difference('Recipe.count', -1) do
-      delete recipe_url(@recipe)
-    end
-
-    assert_redirected_to recipes_url
-  end
+  # test "should get edit" do
+  #   get edit_recipe_url(@recipe)
+  #   assert_response :success
+  # end
+  #
+  # test "should update recipe" do
+  #   patch recipe_url(@recipe), params: { recipe: { active: false, deleted: @recipe.deleted, description: @recipe.description, name: @recipe.name, slug: @recipe.slug } }
+  #   assert_redirected_to recipe_url(@recipe)
+  # end
+  #
+  # test "should destroy recipe" do
+  #   assert_difference('Recipe.count', -1) do
+  #     delete recipe_url(@recipe)
+  #   end
+  #
+  #   assert_redirected_to recipes_url
+  # end
 end

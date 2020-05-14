@@ -1,5 +1,5 @@
 class PublicController < ApplicationController
   def main
-    @recipes = Recipe.active
+    @recipes = Recipe.active.limit(9).shuffle
   end
 end
