@@ -26,20 +26,20 @@
 #  updated_at             :datetime         not null
 #
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
+
 kaladin:
   first_name: Kaladin
   last_name: Stormblessed
   email: kaladin@radiants.io
   biography: I am the guy with the spear who fucks shit up.  Best Radiant ever number 1
-# column: value
-#
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'roshar') %>
+  confirmed_at: <%= Time.now.getutc %>
+
 dalinar:
   first_name: Dalinar
   last_name: Kholin
   email: dalinar@kholinar.hq
   biography: Im sad I killed so many people but now I am basically God
-# column: value
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'roshar') %>
+  confirmed_at: <%= Time.now.getutc %>
+

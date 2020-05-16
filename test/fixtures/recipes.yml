@@ -34,8 +34,6 @@ pizza:
   prep_time: 45
   cook_time: 5
 
-  #ingredients:  mozzarella
-
 soup:
   name: Soup of the Day
   slug: softd_dddf
