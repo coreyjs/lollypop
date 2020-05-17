@@ -61,12 +61,16 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to recipes_url
    end
 
-  test "cant edit someone elses recipe" do
-
+  test "cant edit someone else's recipe" do
+    sign_out :user
+    sign_in users(:dalinar)
+    get edit_recipe_url(@recipe)
+    assert_response :error
   end
 
   test "a recipe has a NULL rating without a rating" do
-
+    recipe = recipes(:salsa)
+    assert_nil recipe.rating
   end
 
   test "decimals should be rouned to the quarter star when multiple ratings exist" do

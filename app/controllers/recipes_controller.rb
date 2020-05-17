@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: [:show]
+  before_action :ensure_authenticated_recipe, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :new]
 
   # GET /recipes
@@ -20,6 +21,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+
   end
 
   # POST /recipes
@@ -67,6 +69,17 @@ class RecipesController < ApplicationController
     def set_recipe
       @recipe = Recipe.active.find(params[:id])
     end
+
+  # this method is our authroizer to ensure a user can only
+  # do actions on their own recipe
+  def ensure_authenticated_recipe
+    return unless user_signed_in?
+
+    @recipe = Recipe.internal_active.find_by!(
+        id: params[:id],
+        user_id: current_user.id
+    )
+  end
 
     # Only allow a list of trusted parameters through.
     def recipe_params

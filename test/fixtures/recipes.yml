@@ -19,6 +19,7 @@
 #
 
 pizza:
+  user: kaladin
   name: My Best Pizza Recipe
   slug: my_best_pizza_recipe
   deleted: false
@@ -49,6 +50,15 @@ taco:
   active: false
   description: This is my favorite taco recipe ever
   tags: easy
+
+salsa:
+  name: Dalinars Homemade Super Salsa
+  slug: dss_3d33
+  deleted: true
+  active: false
+  description: This salsa will have you shifting into party form in no time
+  tags: easy, groups
+  user: dalinar
 
 inactive_fruit:
   name: Fruit Medely
