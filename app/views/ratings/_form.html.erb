@@ -1,0 +1,33 @@
+<%= form_with(url: recipe_ratings_path, local: true) do |form| %>
+  <% if rating&.errors&.any? %>
+    <div id="error_explanation">
+
+      <h2><%= pluralize(rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+
+      <ul>
+        <% rating.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= radio_button_tag(:value, "1") %>
+    <%= label_tag(:value, "1") %>
+    <%= radio_button_tag(:value, "2") %>
+    <%= label_tag(:value, "2") %>
+    <%= radio_button_tag(:value, "3") %>
+    <%= label_tag(:value, "3") %>
+    <%= radio_button_tag(:value, "4") %>
+    <%= label_tag(:value, "4") %>
+    <%= radio_button_tag(:value, "5") %>
+    <%= label_tag(:value, "5") %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

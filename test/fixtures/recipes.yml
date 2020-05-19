@@ -43,6 +43,15 @@ soup:
   description: Soup is not a meal, its ONLY an appetizer
   tags: groups, easy
 
+bread:
+  user: kaladin
+  name: bread of the Day
+  slug: bbb333
+  deleted: false
+  active: true
+  description: BREAD IS GOD MODE BREAD WINS
+  tags: groups, easy
+
 taco:
   name: Taco Madness
   slug: taco_madness_39djk49
