@@ -104,8 +104,9 @@ class RecipeTest < ActiveSupport::TestCase
     recipe = recipes(:taco)
     u1 = users(:kaladin)
     u2 = users(:dalinar)
+    u3 = users(:jasnah)
     recipe.ratings << Rating.new(user: u1, value: 5)
-    recipe.ratings << Rating.new(user: u1, value: 5)
+    recipe.ratings << Rating.new(user: u3, value: 5)
     recipe.ratings << Rating.new(user: u2, value: 1)
 
     assert recipe.ratings.length == 3

@@ -9,7 +9,8 @@ class RatingsControllerTest < ActionDispatch::IntegrationTest
 
   end
 
-  test "cant rate it unathenticated" do
-
+  test "cant rate it unauthenticated" do
+    # recipe = recipes(:salsa)
+    # post recipes_url(recipe)
   end
 end

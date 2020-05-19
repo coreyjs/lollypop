@@ -43,3 +43,12 @@ dalinar:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'roshar') %>
   confirmed_at: <%= Time.now.getutc %>
 
+jasnah:
+  first_name: Jasnah
+  last_name: kholin
+  email: jasnah@kholinar.hq
+  biography: I am the best character in the cosmere, hands down.
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'shadesmar') %>
+  confirmed_at: <%= Time.now.getutc %>
+
+
