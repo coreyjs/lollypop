@@ -22,3 +22,43 @@
 one:
   recipe: pizza
   value: 1
+two:
+  recipe: pizza
+  value: 1
+three:
+  recipe: pizza
+  value: 1
+four:
+  recipe: pizza
+  value: 1
+five:
+  recipe: pizza
+  value: 1
+six:
+  recipe: pizza
+  value: 1
+seven:
+  recipe: pizza
+  value: 1
+eight:
+  recipe: pizza
+  value: 1
+nine:
+  recipe: pizza
+  value: -1
+
+ten:
+  recipe: bread
+  value: 1
+eleven:
+  recipe: bread
+  value: 1
+twelve:
+  recipe: bread
+  value: 1
+thirteen:
+  recipe: bread
+  value: -1
+fourteen:
+  recipe: bread
+  value: -1

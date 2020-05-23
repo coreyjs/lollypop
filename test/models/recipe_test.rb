@@ -120,4 +120,10 @@ class RecipeTest < ActiveSupport::TestCase
     assert all.length != scoped.length
   end
 
+  test "a recipe with higher rank should outrank lower ones" do
+    recipes = Recipe.with_votes.with_rankings.order_by_rank
+    byebug
+    assert recipes.first == recipes(:pizza)
+  end
+
 end
