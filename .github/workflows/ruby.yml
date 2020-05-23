@@ -9,7 +9,7 @@ name: Lollypop Build
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, dev ]
   pull_request:
     branches: [ master ]
 
@@ -25,6 +25,7 @@ jobs:
           POSTGRES_DB: lollypop_test
           POSTGRES_PASSWRORD: ""
         ports: ["5432:5423"]
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
     - uses: actions/checkout@v2
@@ -57,4 +58,8 @@ jobs:
         bin/rails db:setup
         
     - name: Run tests
+      env:
+        PGHOST: localhost
+        PGUSER: postgres
+        RAILS_ENV: test
       run: bundle exec rake test
