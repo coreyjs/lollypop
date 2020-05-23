@@ -4,7 +4,9 @@ class Vote < ApplicationRecord
   scope :upvotes, -> { where(value: 1) }
   scope :downvotes, -> {where(value: -1)}
 
-  #TODO Add validation for vote value range
+  validates :value, numericality: { only_integer: true,
+                                    greater_than_or_equal_to: -1,
+                                    less_than_or_equal_to: 1}
 end
 
 # == Schema Information
