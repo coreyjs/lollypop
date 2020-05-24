@@ -82,6 +82,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: lollypop_production
   username: lollypop
   password: <%= ENV['LOLLYPOP_DATABASE_PASSWORD'] %>
