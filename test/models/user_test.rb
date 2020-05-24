@@ -28,7 +28,7 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "fixture is valid" do
+  test 'fixture is valid' do
     user = users(:kaladin)
     assert user.valid?
   end

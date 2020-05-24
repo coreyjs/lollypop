@@ -73,7 +73,7 @@ all_tags = [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11]
 # r3.tags << [t1, t2, t6, t11, t10, t5]
 
 150.times do
-  recipe = Recipe.create(
+  Recipe.create(
       name: Faker::Food.dish,
       slug: Faker::Food.dish.downcase,
       description: Faker::Food.description,

@@ -20,18 +20,18 @@
 require 'test_helper'
 
 class RecipeTest < ActiveSupport::TestCase
-  test "a recipe is valid if it has a name" do
+  test 'a recipe is valid if it has a name' do
     recipe = recipes(:pizza)
     assert recipe.valid?
   end
 
-  test "a recipe is invalid if it does not have a name" do
+  test 'a recipe is invalid if it does not have a name' do
     recipe = Recipe.new()
 
     assert_not recipe.valid?
   end
 
-  test "a recipe can have many tags" do
+  test 'a recipe can have many tags' do
     recipe = recipes(:pizza)
     assert_equal 2, recipe.tags.length
     tag = Tag.new(name: 'Test Tag')
@@ -40,7 +40,7 @@ class RecipeTest < ActiveSupport::TestCase
     assert_equal 3, recipe.tags.length
   end
 
-  test "recipes can share the same tags" do
+  test 'recipes can share the same tags' do
     recipe_1 = recipes(:pizza)
     recipe_2 = recipes(:soup)
 
@@ -53,7 +53,7 @@ class RecipeTest < ActiveSupport::TestCase
     assert_includes recipe_2.tags, tag
   end
 
-  test "recipes can add ingredients" do
+  test 'recipes can add ingredients' do
     recipe = recipes(:taco)
     ingredient = ingredients(:ground_turkey)
 
@@ -68,39 +68,39 @@ class RecipeTest < ActiveSupport::TestCase
     assert ingredient.valid?
   end
 
-  test "it is invalid if it has a prep_time < 0" do
+  test 'it is invalid if it has a prep_time < 0' do
     recipe = recipes(:taco)
     assert recipe.valid?
     recipe.prep_time = -1
     assert_not recipe.valid?
   end
 
-  test "it is invalid if it has a cook_time < 0" do
+  test 'it is invalid if it has a cook_time < 0' do
     recipe = recipes(:pizza)
     assert recipe.valid?
     recipe.cook_time = -3
     assert_not recipe.valid?
   end
 
-  test "it should have a default value for private" do
+  test 'it should have a default value for private' do
     recipe = recipes(:soup)
     assert_equal recipe.private, false
     assert recipe.valid?
   end
 
-  test "it should use helper private? method" do
+  test 'it should use helper private? method' do
     recipe = recipes(:soup)
     assert_respond_to recipe, :private?
     assert_equal recipe.private?, false
   end
 
-  test "a recipe with 0 ratings has nil star rating" do
+  test 'a recipe with 0 ratings has nil star rating' do
     recipe = recipes(:taco)
     assert_respond_to recipe, :rating
     assert_nil recipe.rating
   end
 
-  test "a recipe with many ratings should be the average, nearest quarter" do
+  test 'a recipe with many ratings should be the average, nearest quarter' do
     recipe = recipes(:taco)
     u1 = users(:kaladin)
     u2 = users(:dalinar)
@@ -113,19 +113,19 @@ class RecipeTest < ActiveSupport::TestCase
     assert_equal recipe.rating, 3.75
   end
 
-  test "scope active should only return Active, Non-deleted and public recipes" do
+  test 'scope active should only return Active, Non-deleted and public recipes' do
     all = Recipe.all
     scoped = Recipe.active
 
     assert all.length != scoped.length
   end
 
-  test "a recipe with higher rank should outrank lower ones" do
+  test 'a recipe with higher rank should outrank lower ones' do
     recipes = Recipe.with_votes.with_rankings.order_by_rank
     assert recipes.first == recipes(:pizza)
   end
 
-  test "recipe rankings score should change if upvote is added" do
+  test 'recipe rankings score should change if upvote is added' do
     recipe = recipes(:pizza)
     assert recipe.recipe_ranking.score == 7
     recipe.upvotes << Vote.upvote
@@ -134,7 +134,7 @@ class RecipeTest < ActiveSupport::TestCase
     assert recipe.recipe_ranking.score == 8
   end
   
-  test "recipe rankings score should change if downvote is added" do
+  test 'recipe rankings score should change if downvote is added' do
     recipe = recipes(:pizza)
     assert recipe.recipe_ranking.score == 7
     recipe.downvotes << Vote.downvote
@@ -143,7 +143,7 @@ class RecipeTest < ActiveSupport::TestCase
     assert recipe.recipe_ranking.score == 6
   end
 
-  test "adding upvotes to a recipe will change its overall ranking" do
+  test 'adding upvotes to a recipe will change its overall ranking' do
     pizza = recipes(:pizza)
     bread = recipes(:bread)
     assert pizza.recipe_ranking.rank == 1

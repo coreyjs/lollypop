@@ -11,7 +11,7 @@
 require 'test_helper'
 
 class VoteTest < ActiveSupport::TestCase
-  test "a vote cant have a number > 1" do
+  test 'a vote cant have a number > 1' do
     recipe = recipes(:pizza)
     vote = Vote.new(recipe: recipe, value: 2)
     assert_not vote.valid?

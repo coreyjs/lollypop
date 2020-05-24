@@ -30,6 +30,8 @@ gem 'dogapi'
 
 gem 'faker'
 
+gem 'rubocop', require: false
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
