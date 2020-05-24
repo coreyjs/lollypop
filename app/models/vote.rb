@@ -7,6 +7,14 @@ class Vote < ApplicationRecord
   validates :value, numericality: { only_integer: true,
                                     greater_than_or_equal_to: -1,
                                     less_than_or_equal_to: 1}
+  
+  def self.upvote
+    new(value: 1)
+  end
+
+  def self.downvote
+    new(value: -1)
+  end
 end
 
 # == Schema Information

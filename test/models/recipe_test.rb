@@ -125,4 +125,35 @@ class RecipeTest < ActiveSupport::TestCase
     assert recipes.first == recipes(:pizza)
   end
 
+  test "recipe rankings score should change if upvote is added" do
+    recipe = recipes(:pizza)
+    assert recipe.recipe_ranking.score == 7
+    recipe.upvotes << Vote.upvote
+    recipe.save!
+    recipe.reload
+    assert recipe.recipe_ranking.score == 8
+  end
+  
+  test "recipe rankings score should change if downvote is added" do
+    recipe = recipes(:pizza)
+    assert recipe.recipe_ranking.score == 7
+    recipe.downvotes << Vote.downvote
+    recipe.save!
+    recipe.reload
+    assert recipe.recipe_ranking.score == 6
+  end
+
+  test "adding upvotes to a recipe will change its overall ranking" do
+    pizza = recipes(:pizza)
+    bread = recipes(:bread)
+    assert pizza.recipe_ranking.rank == 1
+    assert bread.recipe_ranking.rank == 2
+
+    10.times { bread.upvotes << Vote.upvote }
+    bread.save!
+    bread.reload
+
+    assert bread.recipe_ranking.rank == 1
+  end
+
 end
