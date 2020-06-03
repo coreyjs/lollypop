@@ -3,6 +3,8 @@ class RecipesController < ApplicationController
   before_action :ensure_authenticated_recipe, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :new]
 
+  include UseCases::Recipes
+
   # GET /recipes
   # GET /recipes.json
   def index
@@ -12,6 +14,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+
   end
 
   # GET /recipes/new
@@ -28,9 +31,15 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    output = RecipeCreatedMutation.run(recipe: @recipe)
 
+    if output.success?
+      puts 'everything went super duper good'
+    end
     respond_to do |format|
       if @recipe.save
+
+
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
       else

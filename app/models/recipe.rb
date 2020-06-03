@@ -1,5 +1,7 @@
-
 class Recipe < ApplicationRecord
+  include Filterable
+  include RecipeFilter
+
   has_one :recipe_ranking
 
   belongs_to :user, optional: true
