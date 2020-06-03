@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/coreyjs/ruby-mutant
+  revision: 02b3860c132f4c7573cbc86888f305ab93591351
+  specs:
+    ruby-mutant (0.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -256,6 +262,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.2)
   rubocop
+  ruby-mutant!
   sass-rails (>= 6)
   scenic
   selenium-webdriver

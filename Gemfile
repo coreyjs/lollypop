@@ -32,6 +32,8 @@ gem 'faker'
 
 gem 'rubocop', require: false
 
+gem 'ruby-mutant', git: 'https://github.com/coreyjs/ruby-mutant'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
